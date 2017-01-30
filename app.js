@@ -1,11 +1,16 @@
 var express = require('express');
-var startServer = require('./controller/serverStart');
+var server = require('http').Server(express);
+var io = require('socket.io')(server);
+
+var startServer = require('./serverStart');
+var message = require('./message');
 
 var app = express();
 var port = 2209;
 
+//app.set('view engine','ejs');
 app.use(express.static('./public'));
 
+message(app,io);
 
-// Server Start lister
 startServer(app,port);
