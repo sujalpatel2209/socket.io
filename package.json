@@ -1,19 +1,22 @@
 {
   "name": "socketio",
   "version": "1.0.0",
-  "description": "socket io with node j",
-  "main": "index.js",
+  "description": "",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [
-    "socketio",
-    "node"
-  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sujalpatel2209/socket.io.git"
+  },
   "author": "Sujal Patel",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sujalpatel2209/socket.io/issues"
+  },
+  "homepage": "https://github.com/sujalpatel2209/socket.io#readme",
   "dependencies": {
-    "ejs": "^2.5.5",
     "express": "^4.14.1",
     "nodemon": "^1.11.0",
     "socket.io": "^1.7.2"

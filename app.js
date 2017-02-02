@@ -1,16 +1,24 @@
 var express = require('express');
-var server = require('http').Server(express);
-var io = require('socket.io')(server);
-
-var startServer = require('./serverStart');
-var message = require('./message');
+var http = require('http').Server(express);
+var io = require('socket.io')(http);
 
 var app = express();
 var port = 2209;
 
-//app.set('view engine','ejs');
-app.use(express.static('./public'));
+app.use(express.static(__dirname + '/public'));
 
-message(app,io);
+app.get('/',function(req,res){
+  res.sendfile(__dirname + '/index.html');
+});
 
-startServer(app,port);
+io.on('connection', function(socket){
+  console.log('a user connected');
+  socket.on('disconnect', function(){
+    console.log('user disconnected');
+  });
+});
+
+console.log('Server Starting on post ' + port);
+
+
+app.listen(port);
